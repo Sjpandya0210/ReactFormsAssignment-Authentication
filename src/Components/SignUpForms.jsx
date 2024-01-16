@@ -1,12 +1,11 @@
 import { useState } from "react";
 import App from "../App";
 
-function SignUpForm () {
+function SignUpForm ({setToken}) {
     const [username , setUsername] = useState ("");
     const [password , setPassword] = useState ("");
     const [error, setError] = useState (null);
-
-
+    
     async function handleSubmit  (event) {
         event.preventDefault ();
         try {
@@ -18,10 +17,13 @@ function SignUpForm () {
             const result = await response.json();
             //This is where i dont understand why doing this?
             //also not working
-            setToken(result.token);                       
+            setToken(result.token); 
+
             console.log("This is result of fetching API", result);
-            setUsername(" ")
-            setPassword(" ")
+            console.log("This is the token", result.token);
+
+            setUsername(" ");
+            setPassword(" ");
 
         } catch (error) {
             setError(error.message);
