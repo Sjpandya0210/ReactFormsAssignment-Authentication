@@ -16,7 +16,8 @@ function SignUpForm () {
             body: JSON.stringify({username: username, password: password})
         });
             const result = await response.json();
-            //This is where i dont understand why this not working? 
+            //This is where i dont understand why doing this?
+            //also not working
             setToken(result.token);                       
             console.log("This is result of fetching API", result);
             setUsername(" ")
